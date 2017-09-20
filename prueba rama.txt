@@ -10,3 +10,13 @@ Al ejecutar eso, te crea la rama y te mueve hacia esa rama. Sino podrian hacer e
 
 2. Hacer los cambios en los archivos. Se trabajaria como veniamos haciendo, una vez hecho los cambios hacemos git add... git commit...
 El git push habria que discutirlo por que tranquilamente podes crear ramas LOCALES y no publicarlas en el repositorio REMOTO.
+Si decidimos hacer publicas todas las ramas entonces se tendria que:
+	git add --all
+	git commit -m "titulo" -m "descripcion"
+	git push -u origin nombre_nueva_rama
+La opcion [-u] seria el abreviado de [--set-upstream] que lo que hace es asociar la rama LOCAL con la que esta REMOTAMENTE [origin]. Esto simplemente te va crear automaticamente la rama en el repositorio REMOTO que seria el [origin]. Despues para los futuros push no van a necesitar poner siempre git push -u orig... por que ya queda guardado en el archivo de configuracion del repositorio a donde apunta tu rama local.
+
+3.Plasmar los cambios en la rama principal. Tienen que hacer un merge entre la rama master y la rama donde se hicieron los cambios.
+Primero tienen que estar en la rama master para poder hacer el merge. El merge lo que hace el incorporar los commits de una rama que le indicas, en la rama sobre la que estas parado.
+	git checkout master
+	git merge --no-ff -m "descripcion del merge" nombre_rama
