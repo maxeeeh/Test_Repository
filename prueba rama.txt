@@ -20,3 +20,7 @@ La opcion [-u] seria el abreviado de [--set-upstream] que lo que hace es asociar
 Primero tienen que estar en la rama master para poder hacer el merge. El merge lo que hace el incorporar los commits de una rama que le indicas, en la rama sobre la que estas parado.
 	git checkout master
 	git merge --no-ff -m "descripcion del merge" nombre_rama
+La opcion [--no-ff] obliga a que se cree un objeto commit y sumado al [-m "msj"] indicas el titulo que va tener el merge. Si se usara simplemente git merge nombre_rama (si tratan de poner -m les va salir que es ignorado por el modo de merging) lo que haria el git es plasmar los commits de la rama en el master. Usando la opcion [--no-f] obligas a que te cree un objeto commit que la unica razon que tiene de existir es para indicar que hubo un merge y tener registro de ese merge. Me parece muy util esto para saber cuando se hizo el merge.
+Otra cosa, si ponen el [--no-ff] pero no ponen el [-m "msg"] les va abrir el editor de texto VIM de Unix pidiendo que escriban el mensaje. Es una paja ese editor, se maneja mediante comandos por teclas.
+
+4.
