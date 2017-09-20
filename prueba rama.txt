@@ -1,0 +1,12 @@
+El procedimiento para modificar una linea base seria:
+
+1. Crear una rama a partir del tag/linea base a modificar. Un tag es un objeto que apunta a un commit, basicamente estarias creando una rama a partir de un commit que guarda las diferencias entre los archivos que existian en el repositorio y los archivos involucrados en el commit, y las diferencias internas de los archivos del repositorio y los archivos involucrados en el commit. Basicamente la configuracion o estado en ese momento.
+	git checkout -b nombre_nueva_rama nombre_tag
+El checkout sirve para moverse entre las ramas, o moverse hacia un estado anterior del repositorio: podrias poner git checkout nombre_tag y te reproduce el entorno que habia cuando hiciste el commit.
+La opcion [-b] le indica al checkout que cree una nueva rama. La opcion [nombre_tag] le dice que te cree una rama a partir de ese estado.
+Al ejecutar eso, te crea la rama y te mueve hacia esa rama. Sino podrian hacer el camino mas largo que seria: 
+	git branch nombre_nueva_rama nombre_tag
+	git checkout nombre_nueva_rama
+
+2. Hacer los cambios en los archivos. Se trabajaria como veniamos haciendo, una vez hecho los cambios hacemos git add... git commit...
+El git push habria que discutirlo por que tranquilamente podes crear ramas LOCALES y no publicarlas en el repositorio REMOTO.
